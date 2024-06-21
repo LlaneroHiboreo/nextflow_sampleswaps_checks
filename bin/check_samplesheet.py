@@ -34,8 +34,8 @@ class RowChecker:
     def __init__(
         self,
         sample_col="sample",
-        first_col="bam",
-        second_col="bai",
+        first_col="cram",
+        second_col="crai",
         single_col="single_end",
         **kwargs,
     ):
@@ -194,7 +194,7 @@ def check_samplesheet(file_in, file_out):
         https://raw.githubusercontent.com/nf-core/test-datasets/viralrecon/samplesheet/samplesheet_test_illumina_amplicon.csv
 
     """
-    required_columns = {"sample", "patient", "status", "bam", "bai"}
+    required_columns = {"sample", "patient", "status", "cram", "crai"}
     # See https://docs.python.org/3.9/library/csv.html#id3 to read up on `newline=""`.
     with file_in.open(newline="") as in_handle:
         reader = csv.DictReader(in_handle, dialect=sniff_format(in_handle))

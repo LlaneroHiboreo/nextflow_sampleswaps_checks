@@ -31,15 +31,15 @@ def create_bam_channel(LinkedHashMap row) {
 
     // add path(s) of the fastq file(s) to the meta map
     def bam_meta = []
-    if (!file(row.bam).exists()) {
-        exit 1, "ERROR: Please check input samplesheet -> BAM file does not exist!\n${row.bam}"
+    if (!file(row.cram).exists()) {
+        exit 1, "ERROR: Please check input samplesheet -> BAM file does not exist!\n${row.cram}"
     }
     
-    if (!file(row.bai).exists()){
+    if (!file(row.crai).exists()){
         log.warn('Interval files (bai) not provided')
-        bam_meta = [ meta, [ file(row.bam) ] ]
+        bam_meta = [ meta, [ file(row.cram) ] ]
     } else {
-        bam_meta = [ meta, [ file(row.bam), file(row.bai) ] ]
+        bam_meta = [ meta, [ file(row.cram), file(row.crai) ] ]
     }
     return bam_meta
 }

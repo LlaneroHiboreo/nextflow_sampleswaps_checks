@@ -2,7 +2,7 @@ process SOMALIER_EXTRACT {
     tag "$meta.id"
     label 'process_low'
 
-    container "public.ecr.aws/biocontainers/somalier:0.2.18--hb57907c_0"
+    container "533267157365.dkr.ecr.eu-west-1.amazonaws.com/somalier:latest"
 
     input:
     tuple val(meta), path(input), path(input_index)
